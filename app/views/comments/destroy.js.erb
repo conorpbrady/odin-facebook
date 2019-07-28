@@ -1,0 +1,2 @@
+$("div#comments-<%= @post.id %>").html("<%= escape_javascript(render(@comments)) %>");
+$("div#notice").html("Comment Deleted Successfully");

@@ -6,7 +6,7 @@
   <%= comment.created_at %>
 </span>
 
-<%= link_to "Delete Post", method: :delete if current_user == comment.user %>
+<%= link_to "Delete Comment", post_comment_path(comment.post_id, comment.id), method: :delete, remote: true if current_user == comment.user %>
 </div>
 <div class="body">
   <%= comment.content %>

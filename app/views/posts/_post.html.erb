@@ -13,8 +13,13 @@
     <%= post.content %>
   </div>
   <div class="add-comment">
+    <%= form_with model: Comment.new, url: post_comments_path(post.id) do |f| %>
+
+    <%= f.text_area :content, placeholder: "Add Comment" %>
+    <%= f.submit "Comment!" %>
+    <% end %>
     </div>
-  <div class="comments-container">
+  <div class="comments-container" id="comments-<%= post.id %>">
     <%= render post.comments %>
     </div>
 </div>

@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/destroy'
   devise_for :users
 
   get 'posts/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'posts#index'
-  resources :posts,     only: [:index, :create, :destroy]
+  resources :posts,     only: [:index, :create, :destroy] do
+
+
+    resources :comments,  only: [:create, :destroy]
+    resources :likes,     only: [:create, :destroy]
+  end
 end
