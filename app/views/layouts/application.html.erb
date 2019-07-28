@@ -12,6 +12,7 @@
   <body>
     <%= render 'layouts/header' %>
     <div id="flash-container">
+        <div id="notice"></div>
       <% flash.each do |key, value| %>
         <div id="alert alert-"<%= key %>"><%= value %></div>
         <% end %>

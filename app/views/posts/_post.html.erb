@@ -7,7 +7,7 @@
     <%= post.created_at %>
   </span>
 
-  <%= link_to "Delete Post", method: :delete if current_user == post.user %>
+  <%= link_to "Delete Post", post, method: :delete, remote: true if current_user == post.user %>
   </div>
   <div class="body">
     <%= post.content %>

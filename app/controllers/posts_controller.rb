@@ -3,22 +3,25 @@ class PostsController < ApplicationController
   end
 
   def create
-
+    respond_to do |format|
+      @post = current_user.posts.build(post_params)
+      @post.save
+      @posts = Post.all
+      format.js { render :layout => !request.xhr? }
+    end
   end
 
   def index
-    respond_to do |format|
-      format.html { @posts = Post.all }
-      format.js do
-        @post = current_user.posts.build(post_params)
-        @post.save
-        @posts = Post.all
-      end
-    end
+    @posts = Post.all
 
   end
 
   def destroy
+    Post.destroy(params[:id])
+    @posts = Post.all
+    respond_to do |format|
+      format.js { render :layout => !request.xhr? }
+    end
   end
 
   private
