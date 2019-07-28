@@ -1,4 +1,4 @@
-<div class="post-container">
+<div class="post_container">
   <div class="header">
   <span class="author">
     <%= post.user.email %>
@@ -6,20 +6,28 @@
   <span class="time">
     <%= post.created_at %>
   </span>
-
+  <div id="like_container-<%= post.id %>">
+  <%= post.likes.count %> Likes
+  <% like = post.like(current_user) %>
+  <% if like.nil? %>
+  <%= render partial: 'likes/like', locals: { post: post } %>
+  <% else %>
+  <%= render partial: 'likes/unlike', locals: { post: post, like: like } %>
+  <% end %>
+  </div>
   <%= link_to "Delete Post", post, method: :delete, remote: true if current_user == post.user %>
   </div>
   <div class="body">
     <%= post.content %>
   </div>
-  <div class="add-comment">
+  <div class="add_comment">
     <%= form_with model: Comment.new, url: post_comments_path(post.id) do |f| %>
 
     <%= f.text_area :content, placeholder: "Add Comment" %>
     <%= f.submit "Comment!" %>
     <% end %>
     </div>
-  <div class="comments-container" id="comments-<%= post.id %>">
+  <div class="comments_container" id="comments-<%= post.id %>">
     <%= render post.comments %>
     </div>
 </div>
