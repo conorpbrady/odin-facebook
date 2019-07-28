@@ -1,2 +1,11 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="new-post">
+<%= form_for(:post, remote: true) do |f| %>
+
+<%= f.text_area :content, placeholder: "Type your post in here" %>
+<%= f.submit "Post!" %>
+<% end %>
+
+</div>
+<div id="all-posts">
+<%= render @posts %>
+</div>

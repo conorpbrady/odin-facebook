@@ -1,0 +1,13 @@
+<div class="header">
+<span class="author">
+  <%= comment.user.email %>
+</span>
+<span class="time">
+  <%= comment.created_at %>
+</span>
+
+<%= link_to "Delete Post", method: :delete if current_user == comment.user %>
+</div>
+<div class="body">
+  <%= comment.content %>
+</div>
