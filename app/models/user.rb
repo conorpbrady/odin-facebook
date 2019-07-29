@@ -23,4 +23,8 @@ class User < ApplicationRecord
     @friends = Relationship.where("(requester_id = ? OR requested_id = ?) AND accepted = ?",
                                     id, id, true)
   end
+
+  def pending_friends
+    @pending_friends = pending_requests.map { |pr| User.find(pr.requester_id) }
+  end
 end
