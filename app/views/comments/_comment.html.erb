@@ -1,13 +1,16 @@
-<div class="header">
-<span class="author">
+<div class="comment_container">
+<span class="comment_author">
   <%= comment.user.email %>
 </span>
-<span class="time">
-  <%= comment.created_at %>
+
+<span class="delete">
+<%= link_to "x", post_comment_path(comment.post_id, comment.id), method: :delete, remote: true if current_user == comment.user %>
 </span>
 
-<%= link_to "Delete Comment", post_comment_path(comment.post_id, comment.id), method: :delete, remote: true if current_user == comment.user %>
-</div>
-<div class="body">
+<div class="comment_body">
   <%= comment.content %>
+  <div class="comment_time">
+    <%= comment.created_at %>
+  </div>
+</div>
 </div>

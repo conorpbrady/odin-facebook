@@ -1,1 +1,2 @@
+<%= pluralize(post.likes.count, "like") %> | 
 <%= link_to "Like", post_likes_path(post.id), method: :post, remote: true %>

@@ -1,1 +1,2 @@
+<%= pluralize(post.likes.count, "like") %> | 
 <%= link_to "Unlike", post_like_path(id: like.id, post_id: post.id), method: :delete, remote: true %>

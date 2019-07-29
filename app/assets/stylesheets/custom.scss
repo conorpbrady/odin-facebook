@@ -1,0 +1,87 @@
+
+$dark-blue: #586082;
+$light-blue: #9EB3D8;
+$light-gray: #DEE0E0;
+$orange: #EF6354;
+
+ul.nav {
+  list-style: none;
+  li {
+    display: inline;
+  }
+}
+
+#content {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $dark-blue;
+  text-color: white;
+}
+
+textarea {
+width: 100%;
+height: 4rem;
+box-sizing: border-box;
+}
+
+.post_container {
+
+  padding: 0;
+  margin: 1rem;
+  border: 1px solid black;
+  background-color: $light-gray;
+
+  .post_header {
+    padding: .2rem;
+    background-color: $light-blue;
+  }
+
+  .post_body {
+    padding: .4rem .2rem;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .4rem;
+    margin-botton: .4rem;
+    width: 95%;
+  }
+
+  .add_comment {
+    padding: .4rem .2rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    textarea {
+      height: 1.2rem;
+      box-sizing:border-box;
+
+    }
+  }
+
+  .comments {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.comment_container {
+  margin: .2rem 0;
+}
+.comment_body {
+  background-color: white;
+  padding: .2rem .5rem;
+}
+.comment_time {
+  color: $light-gray;
+}
+
+.delete {
+  float: right;
+}

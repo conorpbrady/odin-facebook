@@ -1,33 +1,40 @@
 <div class="post_container">
-  <div class="header">
-  <span class="author">
+  <div class="post_header">
+  <span class="post_author">
     <%= post.user.email %>
   </span>
-  <span class="time">
+  <span class="post_time">
     <%= post.created_at %>
   </span>
-  <div id="like_container-<%= post.id %>">
-  <%= post.likes.count %> Likes
+  <span class="delete">
+    <%= link_to "x", post, method: :delete, remote: true if current_user == post.user %>
+  </span>
+  <div class="clear"></div>
+
+  <span id="like_container-<%= post.id %>">
   <% like = post.like(current_user) %>
   <% if like.nil? %>
   <%= render partial: 'likes/like', locals: { post: post } %>
   <% else %>
   <%= render partial: 'likes/unlike', locals: { post: post, like: like } %>
   <% end %>
+  </span>
+
   </div>
-  <%= link_to "Delete Post", post, method: :delete, remote: true if current_user == post.user %>
-  </div>
-  <div class="body">
+  <div class="post_body">
     <%= post.content %>
   </div>
+
+  <div class="comments" id="comments-<%= post.id %>">
+    <%= render post.comments %>
+  </div>
+
   <div class="add_comment">
     <%= form_with model: Comment.new, url: post_comments_path(post.id) do |f| %>
 
     <%= f.text_area :content, placeholder: "Add Comment" %>
     <%= f.submit "Comment!" %>
     <% end %>
-    </div>
-  <div class="comments_container" id="comments-<%= post.id %>">
-    <%= render post.comments %>
-    </div>
+  </div>
+
 </div>

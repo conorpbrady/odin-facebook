@@ -1,3 +1,4 @@
+<div class="posts"
 <div class="new-post">
 <%= form_with(model: Post.new, remote: true) do |f| %>
 
@@ -8,4 +9,5 @@
 </div>
 <div id="all-posts">
 <%= render @posts %>
+</div>
 </div>
