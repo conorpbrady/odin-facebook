@@ -5,7 +5,7 @@
       <%= current_user.email %>
     </li>
     <li>
-      <%= link_to "User Profile", '#' %>
+      <%= link_to "User Profile", current_user %>
     </li>
     <li>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
