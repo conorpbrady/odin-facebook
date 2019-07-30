@@ -11,7 +11,7 @@
       <%= link_to "User Profile", current_user %>
     </li>
     <li>
-      <% requests_string = pluralize(current_user.pending_requests.count, 'new request') %>
+      <% requests_string = pluralize(current_user.pending_requests.pending.count, 'new request') %>
       <%= link_to "Friends (#{requests_string})", friends_path(current_user) %>
     </li>
     <li>

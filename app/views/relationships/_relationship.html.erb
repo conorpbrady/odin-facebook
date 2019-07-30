@@ -1,0 +1,14 @@
+
+<% user = current_user %>
+<% friend = (relationship.requester == user) ? relationship.requested.email : relationship.requester.email %>
+<div id="friend-container">
+
+<%= friend %>
+<% unless relationship.accepted %>
+<%= form_with model: Relationship.new,
+    url: update_relationship_path(user_id: user.id, id: relationship.id) do |f|  %>
+<%= f.submit "Accept Request" %>
+<% end %>
+<% end %>
+
+</div>

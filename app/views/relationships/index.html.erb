@@ -1,9 +1,9 @@
 
   <h3>Pending</h3>
   <div id="pending">
-    <%= render current_user.pending_friends %>
+    <%= render @pending %>
   </div>
   <h3>Active</h3>
   <div id="accepted">
-    <%= render current_user.friends %>
+    <%= render @accepted %>
   </div>

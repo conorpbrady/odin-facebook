@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'relationships/index'
+  #get 'relationships/index'
   #get 'users/show'
   #get 'users/index'
   #get 'likes/create'
@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'posts#index'
-  resources :users,               only: [:show, :index]
-  get 'users/:id/friends',        to: 'relationships#index',    as: 'friends'
-  resources :posts,               only: [:index, :create, :destroy] do
+  resources :users,                         only: [:show, :index]
+  get  'users/:user_id/friends',             to: 'relationships#index',    as: 'friends'
+  post 'users/:user_id/friends/update/:id', to: 'relationships#update',   as: 'update_relationship'
+  resources :posts,                         only: [:index, :create, :destroy] do
 
-    resources :comments,          only: [:create, :destroy]
-    resources :likes,             only: [:create, :destroy]
+    resources :comments,                    only: [:create, :destroy]
+    resources :likes,                       only: [:create, :destroy]
   end
 end
