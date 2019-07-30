@@ -9,7 +9,6 @@ class RelationshipsController < ApplicationController
     @relationship = Relationship.find(params[:id])
     @relationship.update_attribute(:accepted, true)
     get_friend_lists
-    debugger
     respond_to do |format|
       format.js { render :layout => !request.xhr? }
     end

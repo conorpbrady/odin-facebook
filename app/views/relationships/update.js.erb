@@ -1,2 +1,5 @@
-$("#pending").html("<% escape_javascript(render(@pending)) %>");
-$("#accepted").html("<% escape_javascript(render(@accepted)) %>");
+$("#pending").html("<%= escape_javascript(render(@pending)) %>");
+$("#accepted").html("<%= escape_javascript(render(@accepted)) %>")
+$("div#notice").html("Friend Request Accepted!");
+<% requests_string = pluralize(current_user.pending_requests.pending.count, 'new request') %>
+$("a#friend_requests").text("<%= escape_javascript("Friends (#{requests_string})") %>");

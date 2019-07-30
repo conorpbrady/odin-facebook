@@ -2,9 +2,11 @@
 $dark-blue: #586082;
 $light-blue: #9EB3D8;
 $light-gray: #DEE0E0;
-$orange: #EF6354;
+$light-orange: #fd8073;
 
 ul.nav {
+  padding-left: 1rem;
+  padding-right: 1rem;
   list-style: none;
   li {
     display: inline;
@@ -21,8 +23,9 @@ ul.nav {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-  background-color: $dark-blue;
+  background-color: $light-orange;
   text-color: white;
+  text-align: center;
 }
 
 textarea {
