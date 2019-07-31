@@ -23,4 +23,17 @@ class User < ApplicationRecord
      @friends = Relationship.where("requester_id = ? OR requested_id = ?",
                                      id, id)
    end
+
+   def friends_with?(user)
+      Relationship.where("requester_id = ? OR requested_id = ?", user.id, user.id).count != 0
+    end
+
+    def friends_users_ids
+      friends_arr = [id]
+      friends.active.each do |friend|
+        f = id == friend.requester_id ? friend.requested_id : friend.requester_id
+        friends_arr << f
+      end
+      friends_arr
+    end
 end

@@ -13,8 +13,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
-
+    @posts = Post.where('author_id IN (?)', current_user.friends_users_ids)
   end
 
   def destroy
