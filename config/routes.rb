@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :users,                         only: [:show, :index]
   get  'users/:user_id/friends',             to: 'relationships#index',    as: 'friends'
   post 'users/:user_id/friends/update/:id', to: 'relationships#update',   as: 'update_relationship'
+  post 'users/:user_id/friends/',           to: 'relationships#create',   as: 'create_relationship'
   resources :posts,                         only: [:index, :create, :destroy] do
 
     resources :comments,                    only: [:create, :destroy]

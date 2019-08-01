@@ -15,6 +15,9 @@
       <%= link_to "Friends (#{requests_string})", friends_path(current_user), id: "friend_requests" %>
     </li>
     <li>
+      <%= link_to "Find Friends", users_path %>
+      </li>
+    <li>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
     </li>
   <% else %>

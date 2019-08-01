@@ -24,8 +24,15 @@ class User < ApplicationRecord
                                      id, id)
    end
 
+   def friend(user)
+     Relationship.where("(requester_id = ? AND requested_id = ?) OR (requester_id = ? AND requested_id = ?)",
+                            id, user.id, user.id, id).first
+   end
+
    def friends_with?(user)
-      Relationship.where("requester_id = ? OR requested_id = ?", user.id, user.id).count != 0
+      relationship = Relationship.where("requester_id = ? OR requested_id = ?", user.id, user.id)
+      return nil if relationship.nil?
+      return relationship.accepted
     end
 
     def friends_users_ids

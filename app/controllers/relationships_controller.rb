@@ -5,6 +5,9 @@ class RelationshipsController < ApplicationController
     get_friend_lists
   end
 
+  def create
+  end
+
   def update
 
 
