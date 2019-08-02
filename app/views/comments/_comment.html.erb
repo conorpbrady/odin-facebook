@@ -1,6 +1,7 @@
 <div class="comment_container">
 <span class="comment_author">
-  <%= comment.user.email %>
+  <%= render partial: 'users/user_profile_picture', locals: { user: comment.user, size: 30 } %>
+  <%= link_to "#{comment.user.name}", comment.user %>
 </span>
 
 <span class="delete">

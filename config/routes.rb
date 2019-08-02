@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'posts#index'
-  resources :users,                         only: [:show, :index]
+  resources :users,                         only: [:show, :index, :update]
   get  'users/:user_id/friends',             to: 'relationships#index',    as: 'friends'
   post 'users/:user_id/friends/update/:id', to: 'relationships#update',   as: 'update_relationship'
   post 'users/:user_id/friends/',           to: 'relationships#create',   as: 'create_relationship'

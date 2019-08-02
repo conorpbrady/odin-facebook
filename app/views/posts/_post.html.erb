@@ -1,7 +1,8 @@
 <div class="post_container">
   <div class="post_header">
   <span class="post_author">
-    <%= post.user.email %>
+    <%= render partial: 'users/user_profile_picture', locals: { user: post.user, size: 30 } %>
+    <%= link_to "#{post.user.name}", post.user %>
   </span>
   <span class="post_time">
     <%= post.created_at %>

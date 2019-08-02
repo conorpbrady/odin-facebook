@@ -1,5 +1,17 @@
 
-<div id="user-information">
+<div id="user_information">
+<div id="profile_picture_container">
+  <div id="profile_image">
+    <%= render partial: 'users/user_profile_picture', locals: { user: @user, size: 250 }%>
+  </div>
+  <% if current_user == @user %>
+  <%= form_with(model: @user, url: user_path(@user), remote: true) do |f| %>
+  <%= f.file_field :profile_picture %>
+  <%= f.submit "Upload" %>
+  <% end %>
+  <% end %>
+  </div>
+  <%= @user.name %>
   <%= @user.email %>
 </div>
 <div id="posts">

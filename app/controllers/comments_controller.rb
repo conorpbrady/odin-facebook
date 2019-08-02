@@ -6,8 +6,6 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.author_id = current_user.id
     @comment.save
-
-
     @comments = @post.comments
     respond_to do |format|
       format.js { render :layout => !request.xhr? }

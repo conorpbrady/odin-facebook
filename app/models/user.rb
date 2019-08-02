@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :pending_requests, class_name: "Relationship", foreign_key: "requested_id"
   has_many :sent_requests, class_name: "Relationship", foreign_key: "requester_id"
 
+  has_one_attached :profile_picture
+
   #has_many :friends, through: :relationships, source: :requester
   #has_many :friend_requests, through: :relationships, source: :requested
 

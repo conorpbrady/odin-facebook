@@ -1,4 +1,6 @@
 <div id="user_container-<%= user.id %>">
+  <%= render partial: 'users/user_profile_picture', locals: { user: user, size: 100 } %>
+  <%= link_to "#{user.name}", user %>
   <%= user.email %>
 
   <% friend = current_user.friend(user) %>

@@ -8,4 +8,13 @@ class UsersController < ApplicationController
   def index
     @users = User.where('id != ?', current_user.id)
   end
+
+  def update
+    @user = User.find(params[:id])
+    @user.profile_picture.attach(params[:user][:profile_picture])
+    respond_to do |format|
+      format.js { render :layout => !request.xhr? }
+    end
+  end
+
 end
