@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Odin Facebook
 
-Things you may want to cover:
+This is the Ruby on Rails Final project for:
 
-* Ruby version
+https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project
 
-* System dependencies
+### Requirements
 
-* Configuration
+### Complete
 
-* Database creation
+* Use Postgresql
+* Devise gem for users
+* Users must sign in to see anything but sign on page
+* Users can create posts
+* Users can like posts
+* Users can comment on posts
+* Posts should display author, time, comments and likes
+* Posts Index page should act as timeline - showing all friends' posts
+* Users Index page should show all users and allow user to send friend requests
 
-* Database initialization
 
-* How to run the test suite
+### Remaining Items
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Main Requirements
 
-* Deployment instructions
+Testing
+Exand User Model with name, profile photo, etc
+User Profile Page with Photo
+Update User Show Page
 
-* ...
+Use Omniauth to allow users to sign up with facebook
+Set up a mailer for welcome emails
+ * letter-opener gem for dev
+ * SendGrid for prod
+Deploy to Heroku
+
+#### Extra Credit
+* Posts should allow images
+* Active Storage
+* Post can be text or photo, users can like or comment on both
+* Add Style
