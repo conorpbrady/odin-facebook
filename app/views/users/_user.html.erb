@@ -1,13 +1,19 @@
 <div id="user_container-<%= user.id %>">
   <%= user.email %>
+
   <% friend = current_user.friend(user) %>
+
   <% unless friend.nil? %>
     <% if friend.accepted %>
       "Already friends!"
     <% else %>
+      <% if friend.requester == current_user %>
+        <span>"Request Pending"</span>
+        <% else %>
       <%= form_with model: Relationship.new,
-          url: uxpdate_relationship_path(user_id: user.id, id: relationship.id) do |f|  %>
+          url: update_relationship_path(user_id: user.id, id: friend.id) do |f|  %>
       <%= f.submit "Accept Request" %>
+      <% end %>
       <% end %>
     <% end %>
   <% else %>

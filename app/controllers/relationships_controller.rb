@@ -6,6 +6,14 @@ class RelationshipsController < ApplicationController
   end
 
   def create
+
+    @user = User.find(params[:user_id])
+    @relationship  = current_user.sent_requests.build(requested_id: @user.id, accepted: false)
+    @relationship.save
+    respond_to do |format|
+      format.js { render :layout => !request.xhr? }
+    end
+
   end
 
   def update

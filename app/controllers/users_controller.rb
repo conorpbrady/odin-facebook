@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
-    @users.delete(current_user)
+    @users = User.where('id != ?', current_user.id)
   end
 end
